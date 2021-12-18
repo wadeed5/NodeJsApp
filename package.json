@@ -1,0 +1,22 @@
+{
+  "name": "nodejsapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wadeed5/NodeJsApp.git"
+  },
+  "author": "wadeed.siddiqui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wadeed5/NodeJsApp/issues"
+  },
+  "homepage": "https://github.com/wadeed5/NodeJsApp#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
