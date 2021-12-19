@@ -29,7 +29,7 @@ app.post('/api/courses', (req, res) => {
 
     const { error } = validateCourse(req.body);
     if(error) return res.status(400).send(error.details[0].message);
-    
+
     const course = {
         id: courses.length + 1,
         name: req.body.name
@@ -74,11 +74,11 @@ app.delete('/api/courses/:id', (req, res) => {
 
 
 function validateCourse(course){
-    const schema = {
+    const schema = Joi.object({
         name: Joi.string().min(3).required()
-    };
+    });
 
-    return Joi.validate(course, schema);
+    return schema.validate(course);
 }
 
 
