@@ -6,16 +6,25 @@ const authenticator = require('./authenticator');
 const express = require('express');
 const app = express();
 
+//global object in node
+process.env.NODE_ENV // undefined | anything you set
+
+
+if(app.get('env') === 'development'){
+  app.use(morgan('tiny')); //http logger
+  console.log('Morgan enabled....');
+}
+
 //built in 3rd party middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true})); //for formUrlEndcoded request
 app.use(express.static('public')); //service static files in the provided folder
 app.use(helmet());
-app.use(morgan('tiny')); //http logger
+//app.use(morgan('tiny')); 
 
 //custom logger
 app.use(logger);
-app.use(authenticator);
+//app.use(authenticator);
 
 const genres = [
   { id: 1, name: 'Action' },  
