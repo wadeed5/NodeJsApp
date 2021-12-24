@@ -1,8 +1,17 @@
 const Joi = require('joi');
+const logger = require('./logger');
+const authenticator = require('./authenticator');
 const express = require('express');
 const app = express();
 
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true})); //for formUrlEndcoded request
+app.use(express.static('public')); //service static files in the provided folder
+
+
+app.use(logger);
+app.use(authenticator);
 
 const genres = [
   { id: 1, name: 'Action' },  
