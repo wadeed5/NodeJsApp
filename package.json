@@ -18,6 +18,8 @@
   "homepage": "https://github.com/wadeed5/NodeJsApp#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "joi": "^17.5.0"
+    "helmet": "^4.6.0",
+    "joi": "^17.5.0",
+    "morgan": "^1.10.0"
   }
 }
