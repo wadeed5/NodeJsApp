@@ -1,3 +1,5 @@
+const config = require('config');
+const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const helmet = require('helmet');
 const Joi = require('joi');
@@ -9,6 +11,9 @@ const app = express();
 //global object in node
 process.env.NODE_ENV // undefined | anything you set
 
+console.log('Applciation Name: ' + config.get('name'));
+console.log('Mail Server: ' + config.get('mail.host'));
+console.log('Mail Password: ' + process.env.app_password);
 
 if(app.get('env') === 'development'){
   app.use(morgan('tiny')); //http logger
