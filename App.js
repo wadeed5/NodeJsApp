@@ -2,6 +2,8 @@ const config = require('config');
 const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const helmet = require('helmet');
+const startupDebugger = require('debug')('app:startup');
+const dbDebugger = require('debug')('app:db');
 const Joi = require('joi');
 const logger = require('./logger');
 const authenticator = require('./authenticator');
@@ -17,7 +19,7 @@ console.log('Mail Password: ' + process.env.app_password);
 
 if(app.get('env') === 'development'){
   app.use(morgan('tiny')); //http logger
-  console.log('Morgan enabled....');
+  startupDebugger('Morgan enabled....');
 }
 
 //built in 3rd party middleware
